@@ -2,39 +2,25 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
+  Redirect,
 } from 'react-router-dom';
+
+import Main from './components/Main';
+import NavSwitchRouter from './components/NavSwitchRouter';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          {renderMain()}
-        </Route>
-        <Route >
-          {renderError()}
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <NavSwitchRouter>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Redirect to="/" />
+        </NavSwitchRouter>
+      </Router>
+    </div>
   );
-}
-
-const renderError = () => {
-  return (
-    <div>
-      <h1>Well this is akward...</h1>
-    </div>
-  )
-}
-
-const renderMain = () => {
-  return (
-    <div>
-      <h1>Welcome to my website</h1>
-      <p>It is one minute old today</p>
-    </div>
-  )
 }
 
 export default App;
