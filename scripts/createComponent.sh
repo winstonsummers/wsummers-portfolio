@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# one user input
+# one user input, this does support creating sub componets if you pass a file path instead of folderName
 folderName=$1
 # the path to where components live
-path=../src/App/$folderName/
+path=./src/App/$folderName
 # let the user know we are doing things
 echo "creating your component dir and index file {name: $folderName, path: $path}"
 # make the dir

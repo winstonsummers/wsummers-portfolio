@@ -21,11 +21,14 @@ Ant Design provided a lot of power in not having to design possible complex comp
 
 ES6... I mean, as a JS dev who doesn't hate themselves; ofcourse I use ES6.
 
-## TODO: things to finish
+## `TODO:` things to finish
 
 - finish readme
 - find/create/comission favicon
-- basic routing (mostly for funsies)
 - fill out jsconfig.json
 - fill out nav elements
+
+## Finished `TODO:`'s
+
 - boilerplate script
+- basic routing
