@@ -5,8 +5,8 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Main from './Main';
-import NavSwitchRouter from './NavSwitchRouter';
+import Main from 'App/Main';
+import NavSwitchRouter from 'App/NavSwitchRouter';
 
 function App() {
   return (

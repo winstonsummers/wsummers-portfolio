@@ -25,10 +25,10 @@ ES6... I mean, as a JS dev who doesn't hate themselves; ofcourse I use ES6.
 
 - finish readme
 - find/create/comission favicon
-- fill out jsconfig.json
 - fill out nav elements
 
 ## Finished `TODO:`'s
 
 - boilerplate script
 - basic routing
+- fill out jsconfig.json
