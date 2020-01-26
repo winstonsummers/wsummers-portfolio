@@ -12,6 +12,7 @@ mkdir $path
 cat <<EOF > $path/index.js
 import React from 'react';
 import propsInterface from './propsInterface';
+import './index.css';
 
 // This is the main function. Checkout the propsInterface file to learn
 // more about what's going on here, the rest is pretty standard react :)
@@ -40,6 +41,11 @@ const propsInterface = {
 }
 
 export default propsInterface;
+
+EOF
+
+cat <<EOF > $path/index.module.css
+/* Whoooo! CSS RULEZ! */
 
 EOF
 

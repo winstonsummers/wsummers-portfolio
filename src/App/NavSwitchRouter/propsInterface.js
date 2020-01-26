@@ -1,5 +1,9 @@
+import React, { Fragment } from 'react';
+
 const propsInterface = {
-  children: []
+  children: [
+    <Fragment />
+  ],
 }
 
 export default propsInterface;

@@ -5,7 +5,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import Main from 'App/Main';
+import HomeContent from 'App/Main';
 import NavSwitchRouter from 'App/NavSwitchRouter';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             path: "/",
             label: "Home",
           }}>
-            <Main />
+            <HomeContent />
           </Route>
           <Redirect to="/" />
         </NavSwitchRouter>

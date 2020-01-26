@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import propsInterface from './propsInterface';
+import { default as menuPropsI }  from './NavMenu/propsInterface';
 import NavMenu from './NavMenu';
 
 /**
@@ -30,7 +31,7 @@ function main(props = propsInterface) {
 function drivieMenuProps(children = []) {
   const { assign } = Object;
   const propsMapper = (child) => {
-    return assign({}, child.props.menuProps, propsInterface);
+    return assign({}, child.props.menuProps, menuPropsI);
   }
   const menuProps = children.map(propsMapper);
 
