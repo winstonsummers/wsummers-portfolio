@@ -13,7 +13,10 @@ function App() {
     <div>
       <Router>
         <NavSwitchRouter>
-          <Route exact path="/">
+          <Route exact path="/" menuProps={{
+            path: "/",
+            label: "Home",
+          }}>
             <Main />
           </Route>
           <Redirect to="/" />
