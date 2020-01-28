@@ -1,19 +1,21 @@
 #!/bin/sh
 
 folderName=$1
-path=./src/App/$folderName
+path="./src/App/$folderName"
+
 
 echo
 echo "creating your component dir and index files {name: $folderName, path: $path}"
 echo
 
-# check if directory exists
+
 if [ -d "$path" ]; then
   echo "$path is already a dir"
 else 
   mkdir $path
   echo "created $path dir"
 fi
+
 
 indexJs="$path/index.js"
 if [ -f "$indexJs" ]; then
@@ -40,6 +42,7 @@ EOF
 echo "created $indexJs"
 
 fi
+
 
 propsInterface="$path/propsInterface.js"
 if [ -f "$propsInterface" ]; then
@@ -68,6 +71,7 @@ echo "created $propsInterface"
 
 fi
 
+
 indexModuleCss="$path/index.module.css"
 if [ -f "$indexModuleCss" ]; then
   echo "$indexModuleCss already exists"
@@ -80,10 +84,10 @@ EOF
 echo "import './index.module.css';
 $(cat $indexJs)" > $indexJs
 
-
 echo "created $indexModuleCss"
 
 fi
+
 
 # let the user now we are done
 echo

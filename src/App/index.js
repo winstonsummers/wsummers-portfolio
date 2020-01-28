@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import './index.module.css';
-import HomeContent from 'App/Main';
+import Home from 'App/Home';
 import About from 'App/About';
 import Projects from 'App/Projects';
 import NavSwitchRouter from 'App/NavSwitchRouter';
@@ -20,7 +20,7 @@ function App() {
             path: "/",
             label: "@W",
           }}>
-            <HomeContent />
+            <Home />
           </Route>
           <Route exact path="/about" menuProps={{
             path: "/about",
