@@ -5,14 +5,14 @@ import {
 } from 'react-router-dom';
 
 import propsInterface from './propsInterface';
-import { default as menuPropsI }  from './NavMenu/propsInterface';
+import menuPropsI from './NavMenu/propsInterface';
 import NavMenu from './NavMenu';
 
 /**
  * a wrapper for `react-router-dom`'s Switch component that uses antd to create a nave menu as well as routing
  */
 function main(props = propsInterface) {
-  const menuProps = drivieMenuProps(props.children)
+  const menuProps = drivieMenuProps(props.children);
   return (
     <Fragment>
       <NavMenu menuProps={menuProps} />
@@ -30,10 +30,13 @@ function main(props = propsInterface) {
 
 function drivieMenuProps(children = []) {
   const { assign } = Object;
-  const propsMapper = (child) => {
-    return assign({}, child.props.menuProps, menuPropsI);
+  const safeChildProps = (child) => {
+    return (((child || {}).props || {}).menuProps || {});
   }
-  const menuProps = children.map(propsMapper);
+  const propsPluck = (child) => {
+    return assign({}, safeChildProps(child), menuPropsI);
+  }
+  const menuProps = children.map(propsPluck);
 
   return menuProps;
 }

@@ -5,7 +5,10 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+import './index.module.css';
 import HomeContent from 'App/Main';
+import About from 'App/About';
+import Projects from 'App/Projects';
 import NavSwitchRouter from 'App/NavSwitchRouter';
 
 function App() {
@@ -15,9 +18,21 @@ function App() {
         <NavSwitchRouter>
           <Route exact path="/" menuProps={{
             path: "/",
-            label: "Home",
+            label: "@W",
           }}>
             <HomeContent />
+          </Route>
+          <Route exact path="/about" menuProps={{
+            path: "/about",
+            label: "@W:About",
+          }}>
+            <About />
+          </Route>
+          <Route exact path="/projects" menuProps={{
+            path: "/projects",
+            label: "@W:Projects"
+          }}>
+            <Projects />
           </Route>
           <Redirect to="/" />
         </NavSwitchRouter>

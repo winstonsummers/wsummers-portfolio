@@ -8,10 +8,13 @@ I mean you and I both know that this is the readme for my portfolio site. I am a
 
 Some of the tech used in this project include
 
+- File Structure
 - React (create-react-app)
 - React Router
 - Ant Design
 - ES6 (and Beyond!)
+
+The File Structure is modeled like a Tree, I choose this format to take advantage of ES6 modules and so that components would generally be nest directly under their parents. Obviously some components have to be pulled to the root (in the shared dir) of the tree because they are used in more than one place but in the majority of cases it makes things fairly straight forward.
 
 React is a natural choice for me, I enjoy many of the conviences that it provides (statefulness for one) particularly with CRA.
 
@@ -26,6 +29,10 @@ ES6... I mean, as a JS dev who doesn't hate themselves; ofcourse I use ES6.
 - finish readme
 - find/create/comission favicon
 - fill out nav elements
+- Home route
+- about route
+- projects route
+- stylinge
 
 ## Finished `TODO:`'s
 

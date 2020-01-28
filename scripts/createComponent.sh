@@ -1,18 +1,27 @@
 #!/bin/sh
 
-# one user input, this does support creating sub componets if you pass a file path instead of folderName
 folderName=$1
-# the path to where components live
 path=./src/App/$folderName
-# let the user know we are doing things
-echo "creating your component dir and index file {name: $folderName, path: $path}"
-# make the dir
-mkdir $path
-# make the index file
-cat <<EOF > $path/index.js
+
+echo
+echo "creating your component dir and index files {name: $folderName, path: $path}"
+echo
+
+# check if directory exists
+if [ -d "$path" ]; then
+  echo "$path is already a dir"
+else 
+  mkdir $path
+  echo "created $path dir"
+fi
+
+indexJs="$path/index.js"
+if [ -f "$indexJs" ]; then
+  echo "$indexJs already exists"
+else 
+
+cat <<EOF > $indexJs
 import React from 'react';
-import propsInterface from './propsInterface';
-import './index.css';
 
 // This is the main function. Checkout the propsInterface file to learn
 // more about what's going on here, the rest is pretty standard react :)
@@ -28,14 +37,22 @@ export default main;
 
 EOF
 
-cat <<EOF > $path/propsInterface.js
+echo "created $indexJs"
+
+fi
+
+propsInterface="$path/propsInterface.js"
+if [ -f "$propsInterface" ]; then
+  echo "$propsInterface already exists"
+else 
+cat <<EOF > $propsInterface
 // This is you propsInterface. We pass it as the default props for our 
 // components, which allows services like intelisense to provide better 
 // example of the kind of props your constructor is looking for but it 
 // also serves as an extendable object for writing props to pass to our components. 
-// ie. ```const componentProps = Object.assign({}, propsToPass, propsInterface);
+// ie. const componentProps = Object.assign({}, propsToPass, propsInterface);
 //        ...
-//        <YourSuperAwesomeComponent {...componentProps} />```
+//        <YourSuperAwesomeComponent {...componentProps} />
 const propsInterface = {
 
 }
@@ -44,10 +61,31 @@ export default propsInterface;
 
 EOF
 
-cat <<EOF > $path/index.module.css
+echo "import propsInterface from './propsInterface';
+$(cat $indexJs)" > $indexJs
+
+echo "created $propsInterface"
+
+fi
+
+indexModuleCss="$path/index.module.css"
+if [ -f "$indexModuleCss" ]; then
+  echo "$indexModuleCss already exists"
+else 
+cat <<EOF > $indexModuleCss
 /* Whoooo! CSS RULEZ! */
 
 EOF
 
+echo "import './index.module.css';
+$(cat $indexJs)" > $indexJs
+
+
+echo "created $indexModuleCss"
+
+fi
+
 # let the user now we are done
-echo "Created $folderName, happy hacking!"
+echo
+echo "Created $folderName component, happy hacking!"
+echo
