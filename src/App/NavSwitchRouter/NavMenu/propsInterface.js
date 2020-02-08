@@ -1,11 +1,8 @@
-const menuPropsInterface = {
-  path: "",
-  label: "",
-}
+import iMenuProps from './MenuItem/propsInterface'
 
 const propsInterface = {
   menuProps: [
-    menuPropsInterface,
+    iMenuProps,
   ],
 }
 

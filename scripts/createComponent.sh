@@ -16,8 +16,9 @@ else
   echo "created $path dir"
 fi
 
+echo
 
-indexJs="$path/index.js"
+indexJs="$path/index.jsx"
 if [ -f "$indexJs" ]; then
   echo "$indexJs already exists"
 else 
@@ -43,6 +44,7 @@ echo "created $indexJs"
 
 fi
 
+echo
 
 propsInterface="$path/propsInterface.js"
 if [ -f "$propsInterface" ]; then
@@ -71,6 +73,7 @@ echo "created $propsInterface"
 
 fi
 
+echo
 
 indexModuleCss="$path/index.module.css"
 if [ -f "$indexModuleCss" ]; then

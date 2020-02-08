@@ -6,11 +6,11 @@ import {
 } from 'react-router-dom';
 
 import propsInterface from './propsInterface';
-import menuPropsI from './NavMenu/propsInterface';
+import iMenuProps from './NavMenu/propsInterface';
 import NavMenu from './NavMenu';
 
 /**
- * a wrapper for `react-router-dom`'s Switch component that uses antd to create a nave menu as well as routing
+ * a wrapper for `react-router-dom`'s Switch component that uses antd to create a nav menu as well
  */
 function main(props = propsInterface) {
   const menuProps = drivieMenuProps(props.children);
@@ -22,7 +22,7 @@ function main(props = propsInterface) {
           props.children
         }
         <Route>
-          {renderError()}
+          {renderBadUrl()}
         </Route>
       </Switch>
     </Fragment>
@@ -35,18 +35,21 @@ function drivieMenuProps(children = []) {
     return (((child || {}).props || {}).menuProps || {});
   }
   const propsPluck = (child) => {
-    return assign({}, safeChildProps(child), menuPropsI);
+    return assign({}, safeChildProps(child), iMenuProps);
   }
   const menuProps = children.map(propsPluck);
 
   return menuProps;
 }
 
-const renderError = () => {
+/**
+ * This is basically a built-in fail safe. I don't actaully use it as you may have noticed.
+ */
+function renderBadUrl() {
   return (
     <div>
       <h1>Well this is akward...</h1>
-      <p>Some dev literally didn't setup the routes they made</p>
+      <p>Some dev literally didn't setup the routes <i>they</i> made XD</p>
     </div>
   );
 }

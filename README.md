@@ -33,6 +33,7 @@ ES6... I mean, as a JS dev who doesn't hate themselves; ofcourse I use ES6.
 - about route
 - projects route
 - stylinge
+- Code tour
 
 ## Finished `TODO:`'s
 
